@@ -1,3 +1,5 @@
 class Item < ApplicationRecord
-    has_one :invetory
+    has_one :inventory
+
+    accepts_nested_attributes_for :inventory
 end

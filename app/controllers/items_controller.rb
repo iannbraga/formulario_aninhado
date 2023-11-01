@@ -13,6 +13,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   def new
     @item = Item.new
+    @item.build_inventory
   end
 
   # GET /items/1/edit
@@ -65,6 +66,6 @@ class ItemsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def item_params
-      params.require(:item).permit(:title, :price, :active)
+      params.require(:item).permit(:title, :price, :active, inventory_attributes: [:quantity])
     end
 end
