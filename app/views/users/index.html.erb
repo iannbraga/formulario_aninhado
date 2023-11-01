@@ -1,0 +1,23 @@
+<h1>Usuários</h1>
+<table class="table">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Email</th>
+      <th scope="col">Perfil</th>
+      <th scope="col" class="text-center">Ativo?</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <th scope="row"><%= user.id %></th>
+        <td><%= user.email %></td>
+        <td><%= user.role.capitalize %></td>
+        <td class="text-center"><i class="bi bi-circle-fill <%= ativo?(user.active)%>"></i></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<%= link_to "New user", new_user_path %>

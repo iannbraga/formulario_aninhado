@@ -12,17 +12,22 @@
 
   <body>
     <% if user_signed_in? %>
-    <div class="row">
-      <div class="col-3">
-        <%= render 'shared/navbar' %>
+      <% if current_user.active %>
+        <div class="row">
+          <div class="col-3">
+            <%= render 'shared/navbar' %>
 
-      </div>
-      <div class="col-9">
-        <div class="container mt-5">
-          <%= yield %>
+          </div>
+          <div class="col-9">
+            <div class="container mt-5">
+              <%= yield %>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      <% else %>
+        <h1>Aguarde a ativação do seu usuário</h1>
+        <%= button_to 'Sair', destroy_user_session_path, method: :delete, class: 'btn btn-danger' %>
+      <% end %>
     <% else %>
       <%= yield %>
     <% end %>

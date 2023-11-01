@@ -9,20 +9,14 @@
     <ul class="nav nav-pills flex-column mb-auto">
       <li class="nav-item">
         <%= link_to root_path, class: 'nav-link link-body-emphasis' do %>
-            <i class="bi bi-house pe-none me-2"></i>
-            Home
-        <% end %>
-      </li> 
-      <li class="nav-item">
-        <%= link_to root_path, class: 'nav-link link-body-emphasis' do %>
             <i class="bi bi-speedometer2 pe-none me-2"></i>
             Dashboard
         <% end %>
       </li>
       <li class="nav-item">
-        <%= link_to root_path, class: 'nav-link link-body-emphasis' do %>
+        <%= link_to inventories_path, class: 'nav-link link-body-emphasis' do %>
             <i class="bi bi-table pe-none me-2"></i>
-            Orders
+            Estoque
         <% end %>
       </li>
       <li class="nav-item">
@@ -31,12 +25,14 @@
             Produtos
         <% end %>
       </li>
+      <% if current_user.gerente?%>
       <li class="nav-item">
-        <%= link_to root_path, class: 'nav-link link-body-emphasis' do %>
+        <%= link_to users_path, class: 'nav-link link-body-emphasis' do %>
             <i class="bi bi-person-circle pe-none me-2"></i>
-            Costumers
+            Usuários
         <% end %>
       </li>
+      <% end %>
     </ul>
     <hr>
     <div class="dropdown">
@@ -45,8 +41,6 @@
         <strong><%= current_user.email %></strong>
       </a>
       <ul class="dropdown-menu text-small shadow">
-        <li><a class="dropdown-item" href="#">New project...</a></li>
-        <li><a class="dropdown-item" href="#">Settings</a></li>
         <li><a class="dropdown-item" href="#">Profile</a></li>
         <li><hr class="dropdown-divider"></li>
         <li>

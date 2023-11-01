@@ -4,6 +4,6 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  enum role: %i[ corretor locador locatario administrador ]
+  enum role: %i[ atendente gerente ]
   
 end

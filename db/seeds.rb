@@ -6,14 +6,23 @@
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
 
-User.create!([
+usuarios = [
     {
-        :email => 'administrador@gmail.com',
-        :password => '123456',
-        :password_confirmation => '123456',
-        :reset_password_token => '',
-        :reset_password_sent_at => '',
-        :remember_created_at => '',
-        :role => 1
+        email: "administrador@gmail.com",
+        password: "123456",
+        password_confirmation: "123456",
+        role: 1,
+        active: true
+    },
+    {
+        email: "atendente@gmail.com",
+        password: "123456",
+        password_confirmation: "123456",
+        role: 0,
+        active: true
     }
-])
+]
+
+usuarios.each do |u|
+    User.create(u)
+end
