@@ -1,0 +1,57 @@
+<div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary w-100" style="height: 100vh;">
+    <%= link_to root_path, class: 'd-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none' do %>
+        <i class="bi bi-bootstrap pe-none me-2 fs-4"></i>
+        <span class="fs-4">
+            Sidebar
+        </span>
+    <% end %>
+    <hr>
+    <ul class="nav nav-pills flex-column mb-auto">
+      <li class="nav-item">
+        <%= link_to root_path, class: 'nav-link link-body-emphasis' do %>
+            <i class="bi bi-house pe-none me-2"></i>
+            Home
+        <% end %>
+      </li> 
+      <li class="nav-item">
+        <%= link_to root_path, class: 'nav-link link-body-emphasis' do %>
+            <i class="bi bi-speedometer2 pe-none me-2"></i>
+            Dashboard
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to root_path, class: 'nav-link link-body-emphasis' do %>
+            <i class="bi bi-table pe-none me-2"></i>
+            Orders
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to root_path, class: 'nav-link link-body-emphasis' do %>
+            <i class="bi bi-grid pe-none me-2"></i>
+            Produtos
+        <% end %>
+      </li>
+      <li class="nav-item">
+        <%= link_to root_path, class: 'nav-link link-body-emphasis' do %>
+            <i class="bi bi-person-circle pe-none me-2"></i>
+            Costumers
+        <% end %>
+      </li>
+    </ul>
+    <hr>
+    <div class="dropdown">
+      <a href="#" class="d-flex align-items-center link-body-emphasis text-decoration-none dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://github.com/mdo.png" alt="" width="32" height="32" class="rounded-circle me-2">
+        <strong><%= current_user.email %></strong>
+      </a>
+      <ul class="dropdown-menu text-small shadow">
+        <li><a class="dropdown-item" href="#">New project...</a></li>
+        <li><a class="dropdown-item" href="#">Settings</a></li>
+        <li><a class="dropdown-item" href="#">Profile</a></li>
+        <li><hr class="dropdown-divider"></li>
+        <li>
+            <%= button_to 'Sair', destroy_user_session_path, method: :delete, class: 'dropdown-item' %>
+        </li>
+      </ul>
+    </div>
+  </div>
